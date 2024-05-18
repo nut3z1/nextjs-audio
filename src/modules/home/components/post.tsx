@@ -4,7 +4,7 @@ import Image from "next/image";
 import { NodeType } from "../../../types";
 
 export default function Post({ data }: { data?: NodeType[] }) {
-  console.log("data", data);
+  // console.log("data", data);
   return (
     <div>
       {data?.map((item) => (
