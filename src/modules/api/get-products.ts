@@ -18,23 +18,23 @@ export const getProductsCategories = async () => {
 	return await api.get("products/categories");
   };
 
-export default async function handler(req, res) {
-  const responseData = {
-    success: false,
-    products: [],
-  };
-  const { perPage } = req?.query ?? {};
+// export default async function handler(req, res) {
+//   const responseData = {
+//     success: false,
+//     products: [],
+//   };
+//   const { perPage } = req?.query ?? {};
 
-  try {
-    const { data } = await api.get("products", {
-      per_page: perPage || 50,
-    });
+//   try {
+//     const { data } = await api.get("products", {
+//       per_page: perPage || 50,
+//     });
 
-    responseData.success = true;
-    responseData.products = data;
+//     responseData.success = true;
+//     responseData.products = data;
 
-    res.json(responseData);
-  } catch (error) {
-    res.status(500).json(responseData);
-  }
-}
+//     res.json(responseData);
+//   } catch (error) {
+//     res.status(500).json(responseData);
+//   }
+// }

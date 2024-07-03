@@ -1,10 +1,10 @@
 import type { Config } from "tailwindcss";
+const {nextui} = require("@nextui-org/react");
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     fontSize: {
@@ -52,30 +52,17 @@ const config: Config = {
 				'36': '9rem',
 				'20': '5rem'
 			},
-			screens: {
-				'xs': '375px',
-				//=> @media (min-width: 375px) { ... }
-				
-				sm: '576px',
-		 		// => @media (min-width: 576px) { ... }
-	
-				md: '768px',
-				// => @media (min-width: 768px) { ... }
-	
-				lg: '992px',
-		 		 // => @media (min-width: 992px) { ... }
-	 
-				xl: '1200px',
-				// => @media (min-width: 1200px) { ... }
-	
-				'2xl': '1440px',
-				// => @media (min-width: 1440px) { ... }
-	
-				'3xl': '1441px',
-				// => @media (min-width: 1441px) { ... }
-		},
+      screens: {
+        'sm': '576px',
+        'md': '768px',
+        'lg': '992px',
+        'xl': '1200px',
+        '2xl': '1366px',
+        '3xl': '1440px'
+      },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()],
 };
 export default config;

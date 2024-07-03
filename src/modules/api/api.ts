@@ -1,12 +1,10 @@
 const API_URL = 'https://hoanglongamthanhso.com/graphql';
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
-  const headers = { "Content-Type": "application/json" };
-
+  const headers: Record<string, string> = { "Content-Type": "application/json" };
+  console.log('variables',variables);
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
-    headers[
-      "Authorization"
-    ] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
+    headers["Authorization"] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
   }
 
   // WPGraphQL Plugin must be enabled
