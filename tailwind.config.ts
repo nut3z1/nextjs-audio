@@ -24,27 +24,42 @@ const config: Config = {
 		},
     extend: {
       colors: {
-        gray: {
-          100: '#f7fafc',
-          200: '#edf2f7',
-          300: '#e2e8f0',
-          400: '#cbd5e0',
-          500: '#a0aec0',
-          600: '#718096',
-          700: '#4a5568',
-          800: '#2d3748',
-          900: '#1a202c',
+        primary: {
+          50: '#2196f3',
+          100: '#2196f3',
         },
-        blue: {
-          100: '#ebf8ff',
-          200: '#bee3f8',
-          300: '#90cdf4',
-          400: '#63b3ed',
-          500: '#4299e1',
-          600: '#3182ce',
-          700: '#2b6cb0',
-          800: '#2c5282',
-          900: '#2a4365',
+        secondary: {
+          0: 'rgb(var(--color-secondary-0) / <alpha-value>)',
+          50: 'rgb(var(--color-secondary-50) / <alpha-value>)',
+          100: 'rgb(var(--color-secondary-100) / <alpha-value>)',
+					200: 'rgb(var(--color-secondary-200) / <alpha-value>)',
+          300: 'rgb(var(--color-secondary-300) / <alpha-value>)',
+          400: 'rgb(var(--color-secondary-400) / <alpha-value>)',
+          500: 'rgb(var(--color-secondary-500) / <alpha-value>)',
+          700: 'rgb(var(--color-secondary-700) / <alpha-value>)',
+          900: 'rgb(var(--color-secondary-900) / <alpha-value>)',
+					'black': 'rgb(var(--color-secondary-black) / <alpha-value>)'
+        },
+        red: {
+          50: 'rgb(var(--color-red-50) / <alpha-value>)',
+          100: 'rgb(var(--color-red-100) / <alpha-value>)',
+          300: 'rgb(var(--color-red-300) / <alpha-value>)',
+          500: 'rgb(var(--color-red-500) / <alpha-value>)',
+          700: 'rgb(var(--color-red-700) / <alpha-value>)',
+          900: 'rgb(var(--color-red-900) / <alpha-value>)'
+        },
+        border: {
+          DEFAULT: '#1f2937', // gray-800
+        },
+        gray: {
+					500: '#797979'
+				},
+        content: {
+          subtle: '#797979', // gray-600
+          DEFAULT: '#6b7280', // gray-500
+          emphasis: '#e5e7eb', // gray-200
+          strong: '#f9fafb', // gray-50
+          inverted: '#000000', // black
         },
       },
       minWidth: {

@@ -32,7 +32,7 @@ export const Post = ({ data }: { data?: NodeType[] }) => {
                 alt="img"
               />
             </div>
-            <div className="bg-red-700">
+            <div className="">
               <h2 className="text-red-700">{item.node.title}</h2>
             </div>
           </SwiperSlide>

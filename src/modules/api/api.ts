@@ -1,10 +1,15 @@
-const API_URL = 'https://hoanglongamthanhso.com/graphql';
+import { MenuItemsReponse } from "@/types";
+
+const API_URL = "https://hoanglongamthanhso.com/graphql";
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
-  const headers: Record<string, string> = { "Content-Type": "application/json" };
-  console.log('variables',variables);
+  const headers: Record<string, string> = {
+    "Content-Type": "application/json",
+  };
   if (process.env.WORDPRESS_AUTH_REFRESH_TOKEN) {
-    headers["Authorization"] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
+    headers[
+      "Authorization"
+    ] = `Bearer ${process.env.WORDPRESS_AUTH_REFRESH_TOKEN}`;
   }
 
   // WPGraphQL Plugin must be enabled
@@ -25,7 +30,7 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   return json.data;
 }
 
-export async function getPreviewPost(id, idType = "DATABASE_ID") {
+export async function getPreviewPost(id = "", idType = "DATABASE_ID") {
   const data = await fetchAPI(
     `
     query PreviewPost($id: ID!, $idType: PostIdType!) {
@@ -37,9 +42,23 @@ export async function getPreviewPost(id, idType = "DATABASE_ID") {
     }`,
     {
       variables: { id, idType },
-    },
+    }
   );
   return data.post;
+}
+
+export async function getMenuMain() {
+  const data: MenuItemsReponse = await fetchAPI(
+    `query NewQuery {
+      menuItems {
+        nodes {
+          label
+          path
+        }
+      }
+   }`
+  );
+  return data.menuItems?.nodes;
 }
 
 export async function getAllPostsWithSlug() {
@@ -93,13 +112,13 @@ export async function getAllPostsForHome(preview: boolean) {
         onlyEnabled: !preview,
         preview,
       },
-    },
+    }
   );
 
   return data?.posts;
 }
 
-export async function getPostAndMorePosts(slug, preview, previewData) {
+export async function getPostAndMorePosts(slug = "", preview, previewData) {
   const postPreview = preview && previewData?.post;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
@@ -188,7 +207,7 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
         id: isDraft ? postPreview.id : slug,
         idType: isDraft ? "DATABASE_ID" : "SLUG",
       },
-    },
+    }
   );
 
   // Draft posts may not have an slug

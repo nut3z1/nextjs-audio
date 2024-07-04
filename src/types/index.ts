@@ -35,3 +35,17 @@ interface FeaturedImage {
 interface Node {
   sourceUrl: string;
 }
+
+
+export interface MenuItemsReponse {
+  menuItems?: {
+    nodes: MenuItemsNodes[];
+  }
+}
+export interface MenuItemsNodes{
+  id?: string;
+  url?: string;
+  label?: string;
+  path?: string;
+
+}

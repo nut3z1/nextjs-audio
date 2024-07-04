@@ -1,3 +1,5 @@
+import { ProductsParams } from "@/types/product";
+
 const WooCommerceRestApi = require("woocommerce-rest-ts-api").default;
 
 const api = new WooCommerceRestApi({
@@ -14,9 +16,13 @@ export const getProductsData = async (perPage = 50) => {
   });
 };
 
-export const getProductsCategories = async () => {
-	return await api.get("products/categories");
-  };
+export const getProductsCategories = async (payload?:ProductsParams) => {
+	return await api.get("products/categories",payload);
+};
+
+export const getListProductsData = async (payload:ProductsParams) => {
+  return await api.get("products", payload);
+};
 
 // export default async function handler(req, res) {
 //   const responseData = {
