@@ -24,3 +24,10 @@ body {
     text-wrap: balance;
   }
 }
+
+.react-rater{
+  display: flex;
+}
+.react-rater-star{
+  color: #fc9639;
+}

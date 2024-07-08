@@ -1,36 +1,31 @@
 "use client";
-
-import { NodeType } from "@/types";
 import Image from "next/image";
+import React from "react";
 import { Autoplay, Navigation } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 
-export const Post = ({ data }: { data?: NodeType[] }) => {
+export const BannerSlider = ({ data }: { data?: string[] }) => {
   let settings = {
     navigation: true,
     virtual: false,
-    slidesPerView: 4,
-    slidesPerGroup: 1,
     modules: [Navigation, Autoplay],
     autoplay: { delay: 2000 },
     spaceBetween: 30,
+    loop: true,
   };
   return (
-    <div className="container px-10 md:px-4">
+    <div>
       <Swiper {...settings}>
         {data?.map((item) => (
-          <SwiperSlide key={item.node.slug} className="mx-2">
-            <div className="h-64" >
+          <SwiperSlide key={item}>
+            <div className="">
               <Image
-                src={item.node.featuredImage?.node.sourceUrl}
+                src={item}
                 width={100}
                 height={100}
                 className="w-full h-full"
-                alt="img"
+                alt="img hoang long am thanh so"
               />
-            </div>
-            <div className="">
-              <h2 className="text-red-700">{item.node.title}</h2>
             </div>
           </SwiperSlide>
         ))}

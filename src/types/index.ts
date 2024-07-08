@@ -47,5 +47,9 @@ export interface MenuItemsNodes{
   url?: string;
   label?: string;
   path?: string;
+}
 
+export interface OptionsMenu{
+  label?: string;
+  link?: string;
 }

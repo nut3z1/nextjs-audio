@@ -36,7 +36,7 @@ export const MenuCategories = () => {
     },
   ];
   return (
-    <div className="py-4">
+    <div className="pt-4">
       <div className="flex items-center gap-4">
         {listMenu.map((item) => (
           <div key={item.value}>

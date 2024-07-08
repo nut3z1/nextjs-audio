@@ -21,7 +21,7 @@ export default async function Layout({
       <NavBar data={menu}/>
       <Header />
       {children}
-      <Footer />
+      <Footer data={menu}/>
     </NextUIProvider>
   );
 }

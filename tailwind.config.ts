@@ -41,7 +41,7 @@ const config: Config = {
 					'black': 'rgb(var(--color-secondary-black) / <alpha-value>)'
         },
         red: {
-          50: 'rgb(var(--color-red-50) / <alpha-value>)',
+          50: '#ff0000',
           100: 'rgb(var(--color-red-100) / <alpha-value>)',
           300: 'rgb(var(--color-red-300) / <alpha-value>)',
           500: 'rgb(var(--color-red-500) / <alpha-value>)',
@@ -50,6 +50,7 @@ const config: Config = {
         },
         border: {
           DEFAULT: '#1f2937', // gray-800
+
         },
         gray: {
 					500: '#797979'
