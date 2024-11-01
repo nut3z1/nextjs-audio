@@ -1,27 +1,38 @@
 "use client";
 
-import { MetadataProject, ProductsType } from "@/types/product";
+import { ROUTES } from "@/lib/constants";
+import { ProductsType } from "@/types/product";
+import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import Link from "next/link";
+import { FaAngleRight } from "react-icons/fa6";
 import Rater from "react-rater";
 import logo from "../../../../public/logo.jpg";
-import { Button } from "@nextui-org/button";
-import { FaAngleRight } from "react-icons/fa6";
 
 export const RowProduct = ({
   data,
   title,
+  linkProduct,
 }: {
   data: ProductsType[];
   title?: string;
+  linkProduct?: string;
 }) => {
-  console.log("data", data);
   return (
     <div className="container">
-      {title && <div className="font-bold pb-4">{title}</div>}
+      {title && (
+        <div className="flex items-center justify-between pb-4">
+          <div>
+            <h2 className="font-bold uppercase text-2xl py-2.5 px-3.5 ">
+              {title}
+            </h2>
+          </div>
+          {linkProduct && <Link href={linkProduct}>Xem tất cả</Link>}
+        </div>
+      )}
       <div className="grid grid-cols-5 gap-4">
         {data?.map((item) => (
-          <Link href={item?.slug ?? ""} key={item.id}>
+          <Link href={`${ROUTES.SAN_PHAM}/${item?.slug}`} key={item.id}>
             <div className="rounded-lg border border-default border-solid">
               <div>
                 <Image
@@ -56,8 +67,12 @@ export const RowProduct = ({
         ))}
       </div>
       <div className="flex justify-center pt-4">
-        <Button color="primary" variant="bordered" endContent={<FaAngleRight/>}>
-        Xem tất cả sản phẩm
+        <Button
+          color="primary"
+          variant="bordered"
+          endContent={<FaAngleRight />}
+        >
+          Xem tất cả sản phẩm
         </Button>
       </div>
     </div>

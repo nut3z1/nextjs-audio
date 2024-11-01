@@ -3,6 +3,7 @@ export interface ProductsParams {
 	category?: number;
     include?: number[];
 	exclude?: number[];
+	slug?: string;
 	
 }
 
