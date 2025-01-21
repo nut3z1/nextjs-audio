@@ -1,12 +1,10 @@
 "use client";
 
-import { Avatar } from "@/components/Ui/Avatar";
 import { ProductsType } from "@/types/product";
 import Image from "next/image";
 import logo from "../../../../public/logo.jpg";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
-  console.log("data", data);
   return (
     <div className="container">
       <div className="grid grid-cols-5 gap-4">

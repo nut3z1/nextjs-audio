@@ -6,7 +6,6 @@ import { useSelectedLayoutSegment } from "next/navigation";
 
 export const ListItem = ({ data }: { data: OptionsMenu[] }) => {
   const segment = useSelectedLayoutSegment();
-  console.log('datass',data)
   return (
     <div>
       {data?.map((item) => (

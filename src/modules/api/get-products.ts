@@ -17,19 +17,16 @@ export const getProductsData = async (perPage = 50) => {
   });
 };
 
-export const getProductsCategories = async (payload?:ProductsParams) => {
-	return await api.get(ENDPOINTS.PRODUCTS_CATEGORIES,payload);
+export const getProductsCategories = async (payload?: ProductsParams) => {
+  return await api.get(ENDPOINTS.PRODUCTS_CATEGORIES, payload);
 };
 
-export const getListProductsData = async (payload:ProductsParams) => {
+export const getListProductsData = async (payload: ProductsParams) => {
   return await api.get(ENDPOINTS.PRODUCTS, payload);
 };
 
-export const getProductBySlug = async ( productSlug = '' ) => {
-	return await api.get(
-		ENDPOINTS.PRODUCTS,
-		{
-			slug: productSlug,
-		},
-	);
+export const getProductBySlug = async (productSlug = "") => {
+  return await api.get(ENDPOINTS.PRODUCTS, {
+    slug: productSlug,
+  });
 };

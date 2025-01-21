@@ -1,5 +1,5 @@
 export interface PostResponse {
-    edges: NodeType[]
+  edges: NodeType[];
 }
 
 export interface NodeType {
@@ -10,7 +10,7 @@ export interface NodeType {
     date: string;
     featuredImage: FeaturedImage;
     author: Author;
-  }
+  };
 }
 
 interface Author {
@@ -34,4 +34,16 @@ interface FeaturedImage {
 
 interface Node {
   sourceUrl: string;
+}
+
+export interface ListProductType {
+  id: number;
+  url: string;
+  title: string;
+}
+
+export enum NameCardType {
+  Favourite = "favourite",
+  Preview = "preview",
+  SeeNow = "seeNow",
 }

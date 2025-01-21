@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import { NextUIProvider } from "@nextui-org/react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { getMenuMain } from "@/modules/api/api";
+import { Providers } from "@/components/Providers";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,11 +17,11 @@ export default async function Layout({
 }>) {
   const menu = await getMenuMain();
   return (
-    <NextUIProvider >
-      <NavBar data={menu}/>
+    <Providers>
+      <NavBar data={menu} />
       <Header />
       {children}
-      <Footer data={menu}/>
-    </NextUIProvider>
+      <Footer data={menu} />
+    </Providers>
   );
 }

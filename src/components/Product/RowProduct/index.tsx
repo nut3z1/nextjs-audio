@@ -1,6 +1,5 @@
 "use client";
 
-import { ROUTES } from "@/lib/constants";
 import { ProductsType } from "@/types/product";
 import { Button } from "@nextui-org/button";
 import Image from "next/image";
@@ -8,6 +7,8 @@ import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa6";
 import Rater from "react-rater";
 import logo from "../../../../public/logo.jpg";
+import { ListCard } from "./listCard";
+import { ROUTES } from "@/lib/constants";
 
 export const RowProduct = ({
   data,
@@ -33,8 +34,8 @@ export const RowProduct = ({
       <div className="grid grid-cols-5 gap-4">
         {data?.map((item) => (
           <Link href={`${ROUTES.SAN_PHAM}/${item?.slug}`} key={item.id}>
-            <div className="rounded-lg border border-default border-solid">
-              <div>
+            <div className="group rounded-lg border border-default border-solid">
+              <div className="relative ">
                 <Image
                   src={item.images?.[0].src ?? logo.src}
                   alt={item?.name ?? "Hoang long am thanh so"}
@@ -42,15 +43,11 @@ export const RowProduct = ({
                   height={100}
                   className="w-full h-full rounded-t-lg"
                 />
+                <ListCard data={item} />
               </div>
               <div className="px-4 pt-4">
                 <div className="pb-2">
                   <div className="text-sm h-12 line-clamp-2">{item.name}</div>
-                  {/* {item.price_html ? (
-                    <div>{parse(item.price_html)}</div>
-                    ) : (
-                    <p>{item.price}</p>
-                    )} */}
                   <p className="text-red-50">
                     {item?.price ? item?.price + " triệu" : "Liên Hệ"}
                   </p>
