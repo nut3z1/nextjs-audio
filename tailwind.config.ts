@@ -40,6 +40,15 @@ const config: Config = {
           900: "rgb(var(--color-secondary-900) / <alpha-value>)",
           black: "rgb(var(--color-secondary-black) / <alpha-value>)",
         },
+        green: {
+          50: "#ECFDF3",
+          100: "#1BAD2A",
+          150: "097728 ",
+        },
+        blue: {
+          50: "#D1E9FF",
+          100: "#175CD3",
+        },
         red: {
           50: "#ff0000",
           100: "rgb(var(--color-red-100) / <alpha-value>)",
