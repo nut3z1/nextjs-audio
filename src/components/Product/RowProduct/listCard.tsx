@@ -19,7 +19,7 @@ export const ListCard = ({ data }: { data: ProductsType }) => {
     event,
     item,
   }: {
-    item: any,
+    item: any;
     event: MouseEvent<HTMLButtonElement, MouseEvent>;
   }) => {
     if (item.name !== NameCardType.SeeNow) {

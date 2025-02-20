@@ -12,8 +12,8 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
   console.log("data", data);
   return (
     <div className="container">
-      <div className="grid grid-cols-5 gap-10">
-        <div className="col-span-3">
+      <div className="grid grid-cols-2 gap-10">
+        <div>
           <Image
             src={data?.images?.[0].src ?? logo.src}
             alt={data?.name ?? "Hoang long am thanh so"}
@@ -22,7 +22,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             className="w-full h-full rounded-t-lg"
           />
         </div>
-        <div className="col-span-2">
+        <div>
           <div className="text-2xl font-bold ">{data?.name}</div>
           <div className="py-3 flex items-center gap-3">
             Thương hiệu: Weeworld <Rater total={5} rating={5} />

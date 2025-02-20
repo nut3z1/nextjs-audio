@@ -21,6 +21,12 @@ const config: Config = {
     },
     container: {
       center: true,
+      screens: {
+        sm: "576px",
+        md: "768px",
+        lg: "992px",
+        xl: "1200px",
+      },
     },
     extend: {
       colors: {
@@ -43,11 +49,13 @@ const config: Config = {
         green: {
           50: "#ECFDF3",
           100: "#1BAD2A",
-          150: "097728 ",
+          150: "#097728",
+          200: "#00973a",
         },
         blue: {
           50: "#D1E9FF",
           100: "#175CD3",
+          300: "#35a8e0",
         },
         red: {
           50: "#ff0000",
@@ -82,8 +90,6 @@ const config: Config = {
         md: "768px",
         lg: "992px",
         xl: "1200px",
-        "2xl": "1366px",
-        "3xl": "1440px",
       },
     },
   },
