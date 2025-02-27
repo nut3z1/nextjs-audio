@@ -8,15 +8,15 @@ export const BannerHome = () => {
   return (
     <div className="container">
       <div className="grid grid-cols-12 gap-3">
-        <div className="col-span-2">
+        <div className="col-span-3">
           <LisMenuProduct />
         </div>
-        <div className="col-span-7">
+        <div className="col-span-9">
           <BannerSlider />
         </div>
-        <div className="col-span-3">
+        {/* <div className="col-span-3">
           <ListImg data={dataImgRight} />
-        </div>
+        </div> */}
         <div className="col-span-12">
           <ListImg data={dataImgBottom} viewColumn />
         </div>

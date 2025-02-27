@@ -86,6 +86,8 @@ export interface ProductsType {
   has_options: boolean;
   post_password: string;
   _links: Links;
+  quantity?: number;
+  totalPrice?: string;
 }
 
 interface Links {

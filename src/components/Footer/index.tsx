@@ -33,8 +33,7 @@ export const Footer = ({ data }: { data?: MenuItemsNodes[] }) => {
                 src={logo.src}
                 alt="Hoàng long âm thanh số"
                 width={120}
-                height={100}
-                className="h-full"
+                height={76}
               />
             </div>
             <p>
@@ -67,8 +66,7 @@ export const Footer = ({ data }: { data?: MenuItemsNodes[] }) => {
                 src={logoSaleNoti.src}
                 alt="Hoàng long âm thanh số"
                 width={230}
-                height={100}
-                className="h-full"
+                height={87}
               />
             </Link>
           </div>

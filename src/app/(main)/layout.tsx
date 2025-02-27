@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { NavBar } from "@/components/NavBar";
 import { getMenuMain } from "@/modules/api/api";
 import { Providers } from "@/components/Providers";
+import { CartProvider } from "@/components/Cart/cartContext";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,11 +18,13 @@ export default async function Layout({
 }>) {
   const menu = await getMenuMain();
   return (
-    <Providers>
-      <NavBar data={menu} />
-      <Header />
-      {children}
-      <Footer data={menu} />
-    </Providers>
+    <CartProvider>
+      <Providers>
+        <NavBar data={menu} />
+        <Header />
+        {children}
+        <Footer data={menu} />
+      </Providers>
+    </CartProvider>
   );
 }

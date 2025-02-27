@@ -46,4 +46,5 @@ export enum NameCardType {
   Favourite = "favourite",
   Preview = "preview",
   SeeNow = "seeNow",
+  ShoppingCart = "shoppingCart",
 }

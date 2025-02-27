@@ -22,9 +22,9 @@ export const BannerSlider = () => {
             <div className="">
               <Image
                 src={item.src}
-                width={100}
-                height={100}
-                className="w-full h-full"
+                width={898}
+                height={460}
+                priority
                 alt="img hoang long am thanh so"
               />
             </div>

@@ -39,9 +39,10 @@ export const RowProduct = ({
                 <Image
                   src={item.images?.[0].src ?? logo.src}
                   alt={item?.name ?? "Hoang long am thanh so"}
-                  width={100}
-                  height={100}
-                  className="w-full h-full rounded-t-lg"
+                  width={225}
+                  height={225}
+                  priority
+                  className="rounded-t-lg"
                 />
                 <ListCard data={item} />
               </div>
@@ -53,7 +54,7 @@ export const RowProduct = ({
                   </p>
                 </div>
                 <div className="flex items-center justify-between border-t border-default border-solid py-2">
-                  <Rater total={5} rating={5} />
+                  {/* <Rater total={5} rating={5} /> */}
                   <span className="text-xs">{`Đã bán: ${
                     item.id / 2 < 100 ? 108 : Math.trunc(item.id / 2)
                   }`}</span>
