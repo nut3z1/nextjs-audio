@@ -9,7 +9,6 @@ import Rater from "react-rater";
 import { PresentDetail } from "./presentDetail";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
-  console.log("data", data);
   return (
     <div className="container">
       <div className="grid grid-cols-2 gap-10">
@@ -17,10 +16,10 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
           <Image
             src={data?.images?.[0].src ?? logo.src}
             alt={data?.name ?? "Hoang long am thanh so"}
-            width={100}
-            height={100}
+            width={580}
+            height={580}
             priority
-            className="w-full h-full rounded-t-lg"
+            className="rounded-t-lg"
           />
         </div>
         <div>

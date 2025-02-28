@@ -10,7 +10,7 @@ export const BannerSlider = () => {
     navigation: true,
     virtual: false,
     modules: [Navigation, Autoplay],
-    autoplay: { delay: 2000 },
+    autoplay: { delay: 5000 },
     spaceBetween: 30,
     loop: true,
   };

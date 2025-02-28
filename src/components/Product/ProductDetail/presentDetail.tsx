@@ -1,13 +1,10 @@
-import React from "react";
-import parse from "html-react-parser";
 import {
   ArrowsClockwise,
   CircleWavyCheck,
   Factory,
-  HomeIcon,
   ShieldCheckB,
 } from "@/components/Icon";
-import { Button } from "@nextui-org/button";
+import parse from "html-react-parser";
 
 export const PresentDetail = () => {
   const presentData = [
@@ -34,7 +31,7 @@ export const PresentDetail = () => {
           {informationData?.map((item, index) => (
             <li key={index}>
               <div className="text-xs mb-0.5 flex items-center justify-center gap-1">
-                {/* {item.icon} */}
+                {item.icon}
                 {item.title}
               </div>
               <strong className="text-sm">{item.content}</strong>
