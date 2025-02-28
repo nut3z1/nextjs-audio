@@ -19,6 +19,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             alt={data?.name ?? "Hoang long am thanh so"}
             width={100}
             height={100}
+            priority
             className="w-full h-full rounded-t-lg"
           />
         </div>

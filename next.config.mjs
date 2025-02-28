@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
+    formats: ["image/webp"],
     remotePatterns: [
       {
         protocol: "https",
@@ -9,12 +10,11 @@ const nextConfig = {
     ],
     unoptimized: true,
   },
-  webpack(config, {}) {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
-      use: ["@svgr/webpack"],
+      use: ["@svgr/webpack", "url-loader"],
     });
-
     return config;
   },
 };

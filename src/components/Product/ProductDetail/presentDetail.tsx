@@ -34,7 +34,7 @@ export const PresentDetail = () => {
           {informationData?.map((item, index) => (
             <li key={index}>
               <div className="text-xs mb-0.5 flex items-center justify-center gap-1">
-                {item.icon}
+                {/* {item.icon} */}
                 {item.title}
               </div>
               <strong className="text-sm">{item.content}</strong>

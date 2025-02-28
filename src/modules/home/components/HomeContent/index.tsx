@@ -1,11 +1,8 @@
 import { RowProduct } from "@/components/Product";
 import { getListProductsData } from "@/modules/api/get-products";
 import { BannerHome } from "../Banner";
-import dynamic from "next/dynamic";
+import ListProduct from "../Product";
 
-const ListProduct = dynamic(() => import("../Product"), {
-  ssr: false,
-});
 export const HomeContent = async () => {
   // const allPosts: PostResponse = await getAllPostsForHome(false);
   const { data: listData } = await getListProductsData({ per_page: 10 });

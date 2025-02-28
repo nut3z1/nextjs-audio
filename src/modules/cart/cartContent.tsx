@@ -1,10 +1,8 @@
 "use client";
 import { CartContext } from "@/components/Cart/cartContext";
-import React, { useContext, useState } from "react";
-import logo from "../../../public/logo.jpg";
 import Image from "next/image";
-import { Button } from "@nextui-org/button";
-import { ProductsType } from "@/types/product";
+import { useContext, useState } from "react";
+import logo from "../../../public/logo.jpg";
 
 export const CartContent = () => {
   const { setProductCart, productCart } = useContext(CartContext);

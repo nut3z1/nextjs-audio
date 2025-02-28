@@ -22,19 +22,17 @@ const defaultValue: CartContextType = {
 export const CartContext = createContext<CartContextType>(defaultValue);
 
 export const CartProvider = ({ children }: { children: React.ReactNode }) => {
-  const isFirstRender = useRef(true);
-
-  const [productCart, setProductCart] = useState<ProductsType[]>(() => {
-    const savedCart = localStorage.getItem("productCart");
-    return savedCart ? JSON.parse(savedCart) : [];
-  });
+  const [productCart, setProductCart] = useState<ProductsType[]>([]);
 
   useEffect(() => {
-    if (isFirstRender.current) {
-      isFirstRender.current = false;
-      return;
+    if (!productCart) {
+      const savedCart = localStorage.getItem("productCart");
+      if (savedCart) {
+        setProductCart(JSON.parse(savedCart));
+      }
+    } else {
+      localStorage.setItem("productCart", JSON.stringify(productCart));
     }
-    localStorage.setItem("productCart", JSON.stringify(productCart));
   }, [productCart]);
 
   return (
