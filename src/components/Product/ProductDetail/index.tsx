@@ -28,7 +28,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             Thương hiệu: Weeworld <Rater total={5} rating={5} />
           </div>
           <p>{data?.price ? `Giá bán: ${data.price}` : ""}</p>
-          <PresentDetail />
+          <PresentDetail data={data} />
         </div>
       </div>
       <div>{parse(removeAllClassesUsingRegex(data?.description ?? ""))}</div>

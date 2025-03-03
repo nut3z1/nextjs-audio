@@ -1,24 +1,20 @@
 "use client";
 
+import { ROUTES } from "@/lib/constants";
 import { ProductsType } from "@/types/product";
-import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import Link from "next/link";
-import { FaAngleRight } from "react-icons/fa6";
 import logo from "../../../../public/logo.jpg";
 import { ListCard } from "./listCard";
-import { ROUTES } from "@/lib/constants";
 
 export const RowProduct = ({
   data,
   title,
   idCategory,
-  showAllProject = true,
 }: {
   data: ProductsType[];
   title?: string;
   idCategory?: number;
-  showAllProject?: boolean;
 }) => {
   return (
     <div className="container">
@@ -67,17 +63,6 @@ export const RowProduct = ({
           </Link>
         ))}
       </div>
-      {showAllProject && (
-        <div className="flex justify-center pt-4">
-          <Button
-            color="primary"
-            variant="bordered"
-            endContent={<FaAngleRight />}
-          >
-            Xem tất cả sản phẩm
-          </Button>
-        </div>
-      )}
     </div>
   );
 };

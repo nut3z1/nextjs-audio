@@ -5,8 +5,10 @@ import {
   ShieldCheckB,
 } from "@/components/Icon";
 import parse from "html-react-parser";
+import { Specifications } from "./specifications";
+import { ProductsType } from "@/types/product";
 
-export const PresentDetail = () => {
+export const PresentDetail = ({ data }: { data?: ProductsType }) => {
   const presentData = [
     "Tặng 10m Dây loa SWTECHE BD-2S8ED trị giá <span class='text-red-50 font-bold'>250.000đ</span>",
     "Tặng 1 bộ pin sạc trị giá <span class='text-red-50 font-bold'>450.000đ</span>",
@@ -73,6 +75,7 @@ export const PresentDetail = () => {
           </div>
         </div>
       </div>
+      {data?.attributes?.length && <Specifications data={data} />}
     </div>
   );
 };

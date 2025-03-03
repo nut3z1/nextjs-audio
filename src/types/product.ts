@@ -75,7 +75,7 @@ export interface ProductsType {
   categories: Category[];
   tags: any[];
   images: Image[];
-  attributes: any[];
+  attributes: AttributesType[];
   default_attributes: any[];
   variations: any[];
   grouped_products: any[];
@@ -91,6 +91,15 @@ export interface ProductsType {
   totalPrice?: string;
 }
 
+export interface AttributesType {
+  id?: number;
+  name: string;
+  options: string[];
+  position: number;
+  slug: string;
+  variation: boolean;
+  visible: boolean;
+}
 interface Links {
   self: Self[];
   collection: Self[];
