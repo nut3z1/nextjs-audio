@@ -30,3 +30,9 @@ export const getProductBySlug = async (productSlug = "") => {
     slug: productSlug,
   });
 };
+
+export const getProductCategories = async (productSlug = "") => {
+  return await api.get(ENDPOINTS.PRODUCTS, {
+    slug: productSlug,
+  });
+};

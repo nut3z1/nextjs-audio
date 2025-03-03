@@ -22,7 +22,6 @@ export const VideoContent = () => {
     fetchVideos();
   }, []);
 
-  console.log("videos", videos);
   return (
     <div className="container">
       <div className="py-10">

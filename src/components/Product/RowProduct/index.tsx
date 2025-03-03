@@ -5,7 +5,6 @@ import { Button } from "@nextui-org/button";
 import Image from "next/image";
 import Link from "next/link";
 import { FaAngleRight } from "react-icons/fa6";
-import Rater from "react-rater";
 import logo from "../../../../public/logo.jpg";
 import { ListCard } from "./listCard";
 import { ROUTES } from "@/lib/constants";
@@ -13,11 +12,13 @@ import { ROUTES } from "@/lib/constants";
 export const RowProduct = ({
   data,
   title,
-  linkProduct,
+  idCategory,
+  showAllProject = true,
 }: {
   data: ProductsType[];
   title?: string;
-  linkProduct?: string;
+  idCategory?: number;
+  showAllProject?: boolean;
 }) => {
   return (
     <div className="container">
@@ -28,7 +29,9 @@ export const RowProduct = ({
               {title}
             </h2>
           </div>
-          {linkProduct && <Link href={linkProduct}>Xem tất cả</Link>}
+          {idCategory && (
+            <Link href={`danh-muc/${idCategory}`}>Xem tất cả</Link>
+          )}
         </div>
       )}
       <div className="grid grid-cols-5 gap-4">
@@ -64,15 +67,17 @@ export const RowProduct = ({
           </Link>
         ))}
       </div>
-      <div className="flex justify-center pt-4">
-        <Button
-          color="primary"
-          variant="bordered"
-          endContent={<FaAngleRight />}
-        >
-          Xem tất cả sản phẩm
-        </Button>
-      </div>
+      {showAllProject && (
+        <div className="flex justify-center pt-4">
+          <Button
+            color="primary"
+            variant="bordered"
+            endContent={<FaAngleRight />}
+          >
+            Xem tất cả sản phẩm
+          </Button>
+        </div>
+      )}
     </div>
   );
 };

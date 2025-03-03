@@ -13,7 +13,7 @@ export default function ListProduct(props: ListProductType) {
     <RowProduct
       data={data?.data ?? []}
       title={props.title}
-      linkProduct={props.url}
+      idCategory={props.id}
     />
   );
 }

@@ -38,7 +38,6 @@ interface Node {
 
 export interface ListProductType {
   id: number;
-  url: string;
   title: string;
 }
 

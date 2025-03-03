@@ -4,6 +4,7 @@ export interface ProductsParams {
   include?: number[];
   exclude?: number[];
   slug?: string;
+  search?: string;
 }
 
 export interface CategoriesType {

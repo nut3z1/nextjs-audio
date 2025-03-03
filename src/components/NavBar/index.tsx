@@ -18,7 +18,7 @@ export const NavBar = ({ data }: { data?: MenuItemsNodes[] }) => {
               <Link
                 href={item.path ?? "/"}
                 className={`hover:text-primary-50 ${
-                  (segment ?? '/').includes(item?.path ?? "/")
+                  (segment ?? "/").includes(item?.path ?? "/")
                     ? "text-primary-50 font-bold"
                     : "text-gray-500"
                 }`}

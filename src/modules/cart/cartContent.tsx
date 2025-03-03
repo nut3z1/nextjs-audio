@@ -41,7 +41,6 @@ export const CartContent = () => {
     0
   );
 
-  console.log("productCart", productCart);
   return (
     <div className="container">
       <div className="py-10">
