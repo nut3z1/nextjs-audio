@@ -7,6 +7,7 @@ import parse from "html-react-parser";
 import { removeAllClassesUsingRegex } from "@/lib/function";
 import Rater from "react-rater";
 import { PresentDetail } from "./presentDetail";
+import { ProductRevew } from "./productRevew";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
   return (
@@ -32,6 +33,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
         </div>
       </div>
       <div>{parse(removeAllClassesUsingRegex(data?.description ?? ""))}</div>
+      <ProductRevew id={data?.id} />
     </div>
   );
 };

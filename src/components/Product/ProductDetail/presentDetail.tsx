@@ -75,7 +75,7 @@ export const PresentDetail = ({ data }: { data?: ProductsType }) => {
           </div>
         </div>
       </div>
-      {data?.attributes?.length && <Specifications data={data} />}
+      {data?.attributes?.length ? <Specifications data={data} /> : null}
     </div>
   );
 };
