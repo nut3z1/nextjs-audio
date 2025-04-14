@@ -18,13 +18,15 @@ export default async function Layout({
 }>) {
   const menu = await getMenuMain();
   return (
-    <CartProvider>
-      <Providers>
-        <NavBar data={menu} />
-        <Header />
-        {children}
-        <Footer data={menu} />
-      </Providers>
-    </CartProvider>
+    <main>
+      <CartProvider>
+        <Providers>
+          <NavBar data={menu} />
+          <Header />
+          {children}
+          <Footer data={menu} />
+        </Providers>
+      </CartProvider>
+    </main>
   );
 }

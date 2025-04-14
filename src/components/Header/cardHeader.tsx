@@ -1,10 +1,8 @@
-"use client";
-// import { Badge } from "@nextui-org/react";
 import React, { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../Cart/cartContext";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/Ui";
 
 export const CardHeader = () => {
   const { productCart } = useContext(CartContext);

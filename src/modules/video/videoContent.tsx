@@ -1,21 +1,38 @@
 "use client";
-import { YouTubeAPIResponse, YoutubeVideoType } from "@/types/youtube";
 import React, { useEffect, useState } from "react";
 
+interface VideoItem {
+  id: {
+    videoId: string;
+  };
+  snippet: {
+    title: string;
+  };
+}
+
 export const VideoContent = () => {
-  const [videos, setVideos] = useState<YoutubeVideoType[]>();
-  const [nextPageToken, setNextPageToken] = useState(null);
-  const [prevPageToken, setPrevPageToken] = useState(null);
+  const [videos, setVideos] = useState<VideoItem[]>([]);
+  const [nextPageToken, setNextPageToken] = useState<string | null>(null);
+  const [prevPageToken, setPrevPageToken] = useState<string | null>(null);
 
-  const fetchVideos = async (pageToken = "") => {
-    const res = await fetch(
-      `${"/api/youtube"}${pageToken ? "?pageToken=" + pageToken : ""}`
-    );
-    const data = await res.json();
+  const fetchVideos = async (pageToken: string = "") => {
+    try {
+      const res = await fetch(
+        `/api/youtube${pageToken ? `?pageToken=${pageToken}` : ""}`
+      );
 
-    setVideos(data?.items ?? []);
-    setNextPageToken(data.nextPageToken || null);
-    setPrevPageToken(data.prevPageToken || null);
+      if (!res.ok) {
+        throw new Error("Failed to fetch videos");
+      }
+
+      const data = await res.json();
+      setVideos(data?.items || []);
+      setNextPageToken(data.nextPageToken || null);
+      setPrevPageToken(data.prevPageToken || null);
+    } catch (error) {
+      console.error("Error fetching videos:", error);
+      setVideos([]);
+    }
   };
 
   useEffect(() => {
@@ -25,27 +42,9 @@ export const VideoContent = () => {
   return (
     <div className="container">
       <div className="py-10">
-        <div className="flex justify-between mt-4">
-          {prevPageToken && (
-            <button
-              onClick={() => fetchVideos(prevPageToken)}
-              className="bg-gray-200 px-4 py-2 rounded"
-            >
-              Trang trước
-            </button>
-          )}
-          {nextPageToken && (
-            <button
-              onClick={() => fetchVideos(nextPageToken)}
-              className="bg-blue-500 text-white px-4 py-2 rounded"
-            >
-              Trang sau
-            </button>
-          )}
-        </div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {videos?.map((item, index) => (
-            <div key={index}>
+            <div key={item.id.videoId || index}>
               <iframe
                 width="100%"
                 height="200"
@@ -57,6 +56,24 @@ export const VideoContent = () => {
               ></iframe>
             </div>
           ))}
+        </div>
+        <div className="flex justify-between mt-4">
+          {prevPageToken && (
+            <button
+              onClick={() => fetchVideos(prevPageToken)}
+              className="bg-gray-200 px-4 py-2 rounded"
+            >
+              Previous Page
+            </button>
+          )}
+          {nextPageToken && (
+            <button
+              onClick={() => fetchVideos(nextPageToken)}
+              className="bg-blue-500 text-white px-4 py-2 rounded"
+            >
+              Next Page
+            </button>
+          )}
         </div>
       </div>
     </div>
