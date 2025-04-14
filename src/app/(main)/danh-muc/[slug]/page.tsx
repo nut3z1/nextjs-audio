@@ -15,7 +15,11 @@ const ProjectPage = async ({
   if (!data.length) {
     notFound();
   }
-  return <ProjectContent data={data} />;
+  return (
+    <main>
+      <ProjectContent data={data} />;
+    </main>
+  );
 };
 
 export default ProjectPage;

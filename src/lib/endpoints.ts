@@ -1,6 +1,7 @@
 const ENDPOINTS = {
   PRODUCTS: "products",
   PRODUCTS_CATEGORIES: "products/categories",
+  PRODUCTS_REVIEWS: "products/reviews",
 } as const;
 
 export default ENDPOINTS;
