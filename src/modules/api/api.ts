@@ -1,4 +1,5 @@
 import { MenuItemsReponse } from "@/types";
+import { PostData, PostFields } from "@/types/post";
 
 const API_URL = "https://hoanglongamthanhso.com/graphql";
 
@@ -118,15 +119,20 @@ export async function getAllPostsForHome(preview: boolean) {
   return data?.posts;
 }
 
-export async function getPostAndMorePosts(slug = "", preview, previewData) {
-  const postPreview = preview && previewData?.post;
+export async function getPostAndMorePosts(
+  slug = "",
+  preview?: boolean,
+  previewData?: { post: PostFields }
+): Promise<PostData> {
+  const postPreview = preview ? previewData?.post : undefined;
   // The slug may be the id of an unpublished post
   const isId = Number.isInteger(Number(slug));
   const isSamePost = isId
-    ? Number(slug) === postPreview.id
-    : slug === postPreview.slug;
+    ? Number(slug) === postPreview?.id
+    : slug === postPreview?.slug;
   const isDraft = isSamePost && postPreview?.status === "draft";
   const isRevision = isSamePost && postPreview?.status === "publish";
+
   const data = await fetchAPI(
     `
     fragment AuthorFields on User {
@@ -210,8 +216,8 @@ export async function getPostAndMorePosts(slug = "", preview, previewData) {
     }
   );
 
-  // Draft posts may not have an slug
-  if (isDraft) data.post.slug = postPreview.id;
+  // Draft posts may not have a slug
+  if (isDraft && postPreview) data.post.slug = postPreview.slug;
   // Apply a revision (changes in a published post)
   if (isRevision && data.post.revisions) {
     const revision = data.post.revisions.edges[0]?.node;
@@ -221,8 +227,9 @@ export async function getPostAndMorePosts(slug = "", preview, previewData) {
   }
 
   // Filter out the main post
-  data.posts.edges = data.posts.edges.filter(({ node }) => node.slug !== slug);
-  // If there are still 3 posts, remove the last one
+  data.posts.edges = data.posts.edges.filter(
+    ({ node }: { node: { slug: string } }) => node.slug !== slug
+  );
   if (data.posts.edges.length > 2) data.posts.edges.pop();
 
   return data;

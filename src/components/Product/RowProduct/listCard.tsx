@@ -2,8 +2,13 @@
 import { CartContext } from "@/components/Cart/cartContext";
 import { NameCardType } from "@/modules/home/types";
 import { ProductsType } from "@/types/product";
-import { Button } from "@nextui-org/button";
-import { Tooltip } from "@nextui-org/tooltip";
+import { Button } from "@/components/Ui";
+import {
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+  Tooltip as TooltipWrapper,
+} from "@/components/Ui/tooltip";
 import { MouseEvent, useContext } from "react";
 import { FaHeart } from "react-icons/fa";
 import { GoLink } from "react-icons/go";
@@ -45,16 +50,19 @@ export const ListCard = ({ data }: { data: ProductsType }) => {
     <div className="absolute top-5 right-5 opacity-0 transition-opacity duration-500 ease-in-out group-hover:opacity-100">
       {listIcon.map((item) => (
         <div key={item.name} className="mb-2">
-          <Tooltip content={item.title} placement="left">
-            <Button
-              isIconOnly
-              variant="faded"
-              aria-label={item.title}
-              onClick={(event) => handleOnClick(event, item.name)}
-            >
-              {item.icon}
-            </Button>
-          </Tooltip>
+          <TooltipProvider>
+            <TooltipWrapper>
+              <TooltipTrigger asChild>
+                <Button
+                  aria-label={item.title}
+                  onClick={(event) => handleOnClick(event, item.name)}
+                >
+                  {item.icon}
+                </Button>
+              </TooltipTrigger>
+              <TooltipContent side="left">{item.title}</TooltipContent>
+            </TooltipWrapper>
+          </TooltipProvider>
         </div>
       ))}
     </div>

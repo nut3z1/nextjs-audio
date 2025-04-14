@@ -36,3 +36,7 @@ export const getProductCategories = async (productSlug = "") => {
     slug: productSlug,
   });
 };
+
+export const getProductReviews = async (payload?: ProductsParams) => {
+  return await api.get(ENDPOINTS.PRODUCTS_REVIEWS, payload);
+};

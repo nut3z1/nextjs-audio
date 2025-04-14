@@ -1,16 +1,18 @@
 "use client";
 import { CartContext } from "@/components/Cart/cartContext";
 import Image from "next/image";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import logo from "../../../public/logo.jpg";
+import { ProductsType } from "@/types/product";
 
 export const CartContent = () => {
   const { setProductCart, productCart } = useContext(CartContext);
-  const [cartNumber, setCartNumber] = useState<number>(1);
+
   const removeProductCart = (id: number) => {
     setProductCart((pre) => pre.filter((p) => p.id !== id));
   };
-  const onUpdateNumberCart = (id: number, key: string) => {
+
+  const onUpdateNumberCart = (id: number, key: "add" | "remove") => {
     setProductCart((pre) =>
       pre.map((item) =>
         item.id === id
@@ -58,11 +60,11 @@ export const CartContent = () => {
                 </tr>
               </thead>
               <tbody>
-                {productCart?.map((item) => (
+                {productCart?.map((item: ProductsType) => (
                   <tr key={item.id}>
                     <td>
                       <Image
-                        src={item.images?.[0].src ?? logo.src}
+                        src={item.images?.[0]?.src ?? logo.src}
                         alt={item?.name ?? "Hoang long am thanh so"}
                         width={225}
                         height={225}
@@ -74,24 +76,29 @@ export const CartContent = () => {
                     <td>{item?.price ? item?.price + " triệu" : "Liên Hệ"}</td>
                     <td>
                       <div className="flex items-center bg-white border border-solid rounded-lg justify-around h-12">
-                        <div
-                          className="w-5 h-5 cursor-pointer hover:bg-gray-300 rounded flex items-center justify-center "
+                        <button
+                          className="w-5 h-5 cursor-pointer hover:bg-gray-300 rounded flex items-center justify-center"
                           onClick={() => onUpdateNumberCart(item.id, "add")}
                         >
                           +
-                        </div>
-                        {item.quantity ?? 1}
-                        <div
-                          className="w-5 h-5 cursor-pointer hover:bg-gray-300 rounded flex items-center justify-center "
+                        </button>
+                        <span>{item.quantity ?? 1}</span>
+                        <button
+                          className="w-5 h-5 cursor-pointer hover:bg-gray-300 rounded flex items-center justify-center"
                           onClick={() => onUpdateNumberCart(item.id, "remove")}
                         >
                           -
-                        </div>
+                        </button>
                       </div>
                     </td>
                     <td>{item?.totalPrice ?? item?.price}</td>
                     <td>
-                      <div onClick={() => removeProductCart(item.id)}>x</div>
+                      <button
+                        className="cursor-pointer"
+                        onClick={() => removeProductCart(item.id)}
+                      >
+                        x
+                      </button>
                     </td>
                   </tr>
                 ))}

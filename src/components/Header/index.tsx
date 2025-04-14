@@ -1,4 +1,3 @@
-import { Input } from "@nextui-org/input";
 import Image from "next/image";
 import Link from "next/link";
 import { CiSearch } from "react-icons/ci";
@@ -7,6 +6,7 @@ import { MdSupportAgent } from "react-icons/md";
 import logo from "../../../public/logo.jpg";
 import { CardHeader } from "./cardHeader";
 import { MenuCategories } from "./menuCategories";
+import { Input } from "@/components/Ui/input";
 
 export const Header = async () => {
   return (
@@ -25,11 +25,7 @@ export const Header = async () => {
             </Link>
           </div>
           <div className="flex-1">
-            <Input
-              placeholder="Tìm kiếm ...."
-              endContent={<CiSearch className="text-2xl" />}
-              className="w-full"
-            />
+            <Input placeholder="Tìm kiếm ...." className="w-full" />
           </div>
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-3">
