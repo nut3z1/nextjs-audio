@@ -13,7 +13,8 @@ export interface ProductsReviewsParams
   review?: number;
   reviewer?: number[];
   reviewer_email?: number[];
-  rating?: string;
+  rating?: number;
+  product_id?: number;
 }
 
 export interface CategoriesType {

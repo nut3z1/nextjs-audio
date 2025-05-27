@@ -1,5 +1,5 @@
 export interface PostResponse {
-    edges: NodeType[]
+  edges: NodeType[];
 }
 
 export interface NodeType {
@@ -10,7 +10,7 @@ export interface NodeType {
     date: string;
     featuredImage: FeaturedImage;
     author: Author;
-  }
+  };
 }
 
 interface Author {
@@ -36,20 +36,24 @@ interface Node {
   sourceUrl: string;
 }
 
-
 export interface MenuItemsReponse {
   menuItems?: {
     nodes: MenuItemsNodes[];
-  }
+  };
 }
-export interface MenuItemsNodes{
+export interface MenuItemsNodes {
   id?: string;
   url?: string;
   label?: string;
   path?: string;
 }
 
-export interface OptionsMenu{
+export interface OptionsMenu {
   label?: string;
   link?: string;
+}
+
+export interface ErrorResponse {
+  error: number;
+  message: string;
 }

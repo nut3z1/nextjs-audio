@@ -3,38 +3,57 @@
 import { SymbolX } from "@/components/Icon/Symbol";
 import { Button, Input } from "@/components/Ui";
 import { Textarea } from "@/components/Ui/textarea";
+import { QueryKey } from "@/lib/queriesKey";
+import { useCreateProductReviews } from "@/modules/api/mutations";
 import { useGetProductsReviews } from "@/modules/api/queries";
+import { ProductsReviewsParams } from "@/types/product";
 import { RevewProductType } from "@/types/review";
+import { useQueryClient } from "@tanstack/react-query";
 import parse from "html-react-parser";
 import Image from "next/image";
 import { useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
 
-type FormRevew = {
-  name?: string;
-  email?: string;
-  message?: string;
-};
-
 export const ProductRevew = ({ id }: { id?: number }) => {
   const payload = { product: id, per_page: 10 };
   const { data: dataRevew } = useGetProductsReviews(payload);
   const [showProfile, setShowProfile] = useState(false);
+  const queryClient = useQueryClient();
 
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
-  } = useForm<FormRevew>();
+  } = useForm<ProductsReviewsParams>();
 
-  const onSubmit: SubmitHandler<FormRevew> = (data) => console.log(data);
+  const onSubmit: SubmitHandler<ProductsReviewsParams> = (data) =>
+    void mutateAsync({ ...data, product_id: id, rating: 5 });
 
   const TextRequied = ({ text }: { text?: string }) => (
     <div className="text-red-50 mt-2 text-sm">
       {text ?? `This field is required`}
     </div>
   );
+  const { mutateAsync } = useCreateProductReviews({
+    onSuccess: (resp, vars) => {
+      const responseData = resp;
+      // const errorMess = resp.error;
+      void queryClient.invalidateQueries({
+        queryKey: [QueryKey.ProductReview],
+      });
 
+      console.log("responseData", responseData);
+      reset();
+      if (responseData) {
+      } else {
+        // notifyError(errorMess);
+      }
+    },
+    onError: () => {
+      // notifyError();
+    },
+  });
   console.log("errors", errors);
   return (
     <div className="py-10">
@@ -45,26 +64,26 @@ export const ProductRevew = ({ id }: { id?: number }) => {
       </div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <Textarea
-          {...register("message", { required: true })}
+          {...register("review", { required: true })}
           onFocus={() => setShowProfile(true)}
           placeholder="Type your message here."
         />
-        {errors.message && <TextRequied />}
+        {errors.review && <TextRequied />}
         {showProfile ? (
           <div className="mt-4 bg-gray-50 p-4 rounded">
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <Input
-                  {...register("name", { required: true })}
+                  {...register("reviewer", { required: true })}
                   type="text"
                   placeholder="Name"
                 />
-                {errors.name && <TextRequied />}
+                {errors.reviewer && <TextRequied />}
               </div>
               <div>
                 <div className="flex items-center gap-4">
                   <Input
-                    {...register("email", { required: true })}
+                    {...register("reviewer_email", { required: true })}
                     type="email"
                     placeholder="Email"
                     className="flex-1"
@@ -74,7 +93,7 @@ export const ProductRevew = ({ id }: { id?: number }) => {
                     onClick={() => setShowProfile(false)}
                   />
                 </div>
-                {errors.email && <TextRequied />}
+                {errors.reviewer_email && <TextRequied />}
               </div>
             </div>
             <Button type="submit" className="mt-4">

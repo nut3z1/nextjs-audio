@@ -44,3 +44,7 @@ export const getProductListCategories = async () => {
 export const getProductReviews = async (payload?: ProductsReviewsParams) => {
   return await api.get(ENDPOINTS.PRODUCTS_REVIEWS, payload);
 };
+
+export const createProductReviews = async (payload?: ProductsReviewsParams) => {
+  return await api.post(ENDPOINTS.PRODUCTS_REVIEWS, payload);
+};
