@@ -1,6 +1,7 @@
 import { QueryKey } from "@/lib/queriesKey";
 import {
   getListProductsData,
+  getProductListCategories,
   getProductReviews,
   getProductsCategories,
 } from "./get-products";
@@ -16,7 +17,7 @@ export const useGetProjectList = (params: ProductsParams) => {
 
 export const useGetProductsCategories = (params: ProductsParams) => {
   return useQuery({
-    queryKey: [QueryKey.ProjectListCategories, params],
+    queryKey: [QueryKey.ProjectCategories, params],
     queryFn: () => getProductsCategories(params),
   });
 };
@@ -25,5 +26,12 @@ export const useGetProductsReviews = (params?: ProductsReviewsParams) => {
   return useQuery({
     queryKey: [QueryKey.ProductReview, params],
     queryFn: () => getProductReviews(params),
+  });
+};
+
+export const useGetProductListCategories = () => {
+  return useQuery({
+    queryKey: [QueryKey.ProjectListCategories],
+    queryFn: () => getProductListCategories(),
   });
 };

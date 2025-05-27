@@ -37,6 +37,10 @@ export const getProductCategories = async (productSlug = "") => {
   });
 };
 
+export const getProductListCategories = async () => {
+  return await api.get(ENDPOINTS.PRODUCTS_CATEGORIES);
+};
+
 export const getProductReviews = async (payload?: ProductsReviewsParams) => {
   return await api.get(ENDPOINTS.PRODUCTS_REVIEWS, payload);
 };
