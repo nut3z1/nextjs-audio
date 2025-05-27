@@ -5,7 +5,7 @@ import {
   getProductsCategories,
 } from "./get-products";
 import { useQuery } from "@tanstack/react-query";
-import { ProductsParams } from "@/types/product";
+import { ProductsParams, ProductsReviewsParams } from "@/types/product";
 
 export const useGetProjectList = (params: ProductsParams) => {
   return useQuery({
@@ -21,7 +21,7 @@ export const useGetProductsCategories = (params: ProductsParams) => {
   });
 };
 
-export const useGetProductsReviews = (params?: ProductsParams) => {
+export const useGetProductsReviews = (params?: ProductsReviewsParams) => {
   return useQuery({
     queryKey: [QueryKey.ProductReview, params],
     queryFn: () => getProductReviews(params),

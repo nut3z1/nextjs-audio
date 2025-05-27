@@ -1,5 +1,5 @@
 import ENDPOINTS from "@/lib/endpoints";
-import { ProductsParams } from "@/types/product";
+import { ProductsParams, ProductsReviewsParams } from "@/types/product";
 
 const WooCommerceRestApi = require("woocommerce-rest-ts-api").default;
 
@@ -37,6 +37,6 @@ export const getProductCategories = async (productSlug = "") => {
   });
 };
 
-export const getProductReviews = async (payload?: ProductsParams) => {
+export const getProductReviews = async (payload?: ProductsReviewsParams) => {
   return await api.get(ENDPOINTS.PRODUCTS_REVIEWS, payload);
 };
