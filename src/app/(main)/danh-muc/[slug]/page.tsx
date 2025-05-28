@@ -12,6 +12,7 @@ const ProjectPage = async ({
 }) => {
   const { slug } = await params;
   const { data } = await getListProductsData({ category: slug, per_page: 10 });
+  console.log("slug", slug);
   if (!data.length) {
     notFound();
   }

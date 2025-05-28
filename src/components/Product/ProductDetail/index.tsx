@@ -8,6 +8,7 @@ import { removeAllClassesUsingRegex } from "@/lib/function";
 import Rater from "react-rater";
 import { PresentDetail } from "./presentDetail";
 import { ProductRevew } from "./productRevew";
+import { Specifications } from "./specifications";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
   return (
@@ -29,10 +30,17 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             Thương hiệu: Weeworld <Rater total={5} rating={5} />
           </div>
           <p>{data?.price ? `Giá bán: ${data.price}` : ""}</p>
-          <PresentDetail data={data} />
+          <PresentDetail />
         </div>
       </div>
-      <div>{parse(removeAllClassesUsingRegex(data?.description ?? ""))}</div>
+      <div className="grid grid-cols-12 gap-10 mt-12">
+        <div className="col-span-8">
+          {parse(removeAllClassesUsingRegex(data?.description ?? ""))}
+        </div>
+        <div className="col-span-4">
+          {data?.attributes?.length ? <Specifications data={data} /> : null}
+        </div>
+      </div>
       <ProductRevew id={data?.id} />
     </div>
   );

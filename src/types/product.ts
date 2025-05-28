@@ -8,6 +8,15 @@ export interface ProductsParams {
   product?: number;
 }
 
+export interface ProductsReviewsParams
+  extends Pick<ProductsParams, "per_page" | "product"> {
+  review?: number;
+  reviewer?: number[];
+  reviewer_email?: number[];
+  rating?: number;
+  product_id?: number;
+}
+
 export interface CategoriesType {
   id: number;
   name?: string;

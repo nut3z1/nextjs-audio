@@ -3,6 +3,7 @@ import { dataMenuProduct } from "@/mocks";
 import Link from "next/link";
 import Image from "next/image";
 import { MdChevronRight } from "react-icons/md";
+import { useGetProductListCategories } from "@/modules/api/queries";
 
 export const LisMenuProduct = () => {
   return (

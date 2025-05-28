@@ -1,5 +1,4 @@
 "use client";
-
 import React, { useContext } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { CartContext } from "../Cart/cartContext";
