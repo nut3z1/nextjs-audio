@@ -1,5 +1,5 @@
 "use client";
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 import {
   createContext,
   Dispatch,

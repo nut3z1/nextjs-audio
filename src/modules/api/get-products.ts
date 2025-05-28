@@ -1,12 +1,12 @@
 import ENDPOINTS from "@/lib/endpoints";
-import { ProductsParams, ProductsReviewsParams } from "@/types/product";
+import { ProductsParams, ProductsReviewsParams } from "@/types/product/product";
 
 const WooCommerceRestApi = require("woocommerce-rest-ts-api").default;
 
 const api = new WooCommerceRestApi({
   url: process.env.NEXT_PUBLIC_WORLDPRESS_SITE_URL,
-  consumerKey: "ck_f3dc21f71cababb062e18629bfaa4191ddfe5023",
-  consumerSecret: "cs_adc3fbd326b33e9472b0cf8902df894efe2ae3bb",
+  consumerKey: process.env.NEXT_PUBLIC_WC_CONSUMER_KEY,
+  consumerSecret: process.env.NEXT_PUBLIC_WC_CONSUMMER_SECRET,
   version: "wc/v3",
   // queryStringAuth: false, // Force Basic Authentication as query string true and using under HTTPS
 });

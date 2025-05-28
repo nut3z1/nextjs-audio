@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { CiSearch } from "react-icons/ci";
 import { FaUser } from "react-icons/fa";
 import { MdSupportAgent } from "react-icons/md";
 import logo from "../../../public/logo.jpg";
@@ -8,7 +7,7 @@ import { CardHeader } from "./cardHeader";
 import { MenuCategories } from "./menuCategories";
 import { Input } from "@/components/Ui/input";
 
-export const Header = async () => {
+export const Header = () => {
   return (
     <div className="sticky top-0 left-0 right-0 bg-white z-10">
       <div className="container py-8">

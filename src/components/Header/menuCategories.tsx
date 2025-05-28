@@ -1,46 +1,21 @@
+import { getProductsCategories } from "@/modules/api/get-products";
+import { CategoriesProductType } from "@/types/product";
 import Link from "next/link";
 
-export const MenuCategories = () => {
-  const listMenu = [
-    {
-      value: "dan-karaoke",
-      label: "Dàn Karaoke",
-    },
-    {
-      value: "loa-weeworld",
-      label: "Loa Weeworld",
-    },
-    {
-      value: "loa-sub",
-      label: "Loa sub",
-    },
-    {
-      value: "cuc-day-cong-suat",
-      label: "Cục đẩy công suất",
-    },
-    {
-      value: "vang-co-vang-so",
-      label: "Vang cơ - Vang số",
-    },
-    {
-      value: "micro",
-      label: "Micro",
-    },
-    {
-      value: "nang-tieng",
-      label: "Nâng tiếng",
-    },
-    {
-      value: "loa-treble-roi",
-      label: "Loa treble rời",
-    },
-  ];
+export const MenuCategories = async () => {
+  const categoryId = [156, 146, 145, 140, 141, 138, 162, 144];
+  const { data } = await getProductsCategories({
+    per_page: 100,
+    include: categoryId,
+    orderby: "include",
+  });
+
   return (
     <div className="pt-4">
       <div className="flex items-center gap-4">
-        {listMenu.map((item) => (
-          <div key={item.value}>
-            <Link href={item.value}>{item.label}</Link>
+        {data?.map((item: CategoriesProductType) => (
+          <div key={item.id}>
+            <Link href={`/danh-muc/${item.id}`}>{item?.name}</Link>
           </div>
         ))}
       </div>

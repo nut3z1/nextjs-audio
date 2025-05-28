@@ -1,3 +1,5 @@
+import { Links } from "./commom";
+
 export interface RevewProductType {
   id: number;
   date_created: string;
@@ -13,25 +15,6 @@ export interface RevewProductType {
   verified: boolean;
   reviewer_avatar_urls: Revieweravatarurls;
   _links: Links;
-}
-
-interface Links {
-  self: Self[];
-  collection: Collection[];
-  up: Collection[];
-}
-
-interface Collection {
-  href: string;
-}
-
-interface Self {
-  href: string;
-  targetHints: TargetHints;
-}
-
-interface TargetHints {
-  allow: string[];
 }
 
 interface Revieweravatarurls {

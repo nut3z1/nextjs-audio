@@ -1,7 +1,7 @@
 "use client";
 
 import { ROUTES } from "@/lib/constants";
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 import Image from "next/image";
 import Link from "next/link";
 import logo from "../../../../public/logo.jpg";

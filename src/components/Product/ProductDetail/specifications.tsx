@@ -1,4 +1,4 @@
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 import React from "react";
 
 export const Specifications = ({ data }: { data?: ProductsType }) => {

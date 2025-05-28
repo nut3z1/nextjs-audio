@@ -1,5 +1,8 @@
 import { RowProduct } from "@/components/Product";
-import { getListProductsData } from "@/modules/api/get-products";
+import {
+  getListProductsData,
+  getProductsCategories,
+} from "@/modules/api/get-products";
 import { BannerHome } from "../Banner";
 import ListProduct from "../Product";
 
@@ -13,7 +16,6 @@ export const HomeContent = async () => {
     { title: "Loa sub", id: 145 },
     { title: "Micro", id: 138 },
   ];
-
   return (
     <div>
       <div className="pb-3">

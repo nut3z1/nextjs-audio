@@ -1,3 +1,5 @@
+import { Links } from "./commom";
+
 export interface ProductsParams {
   per_page?: number;
   category?: number;
@@ -6,6 +8,8 @@ export interface ProductsParams {
   slug?: string;
   search?: string;
   product?: number;
+  orderby?: string;
+  order?: string;
 }
 
 export interface ProductsReviewsParams
@@ -109,14 +113,6 @@ export interface AttributesType {
   slug: string;
   variation: boolean;
   visible: boolean;
-}
-interface Links {
-  self: Self[];
-  collection: Self[];
-}
-
-interface Self {
-  href: string;
 }
 
 interface Metadatum {

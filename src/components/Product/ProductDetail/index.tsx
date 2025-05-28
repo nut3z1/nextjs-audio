@@ -1,6 +1,6 @@
 "use client";
 
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 import Image from "next/image";
 import logo from "../../../../public/logo.jpg";
 import parse from "html-react-parser";
