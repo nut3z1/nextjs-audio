@@ -14,6 +14,7 @@ export interface PostFields {
   id: number;
   status: "draft" | "publish";
   date: string;
+  content: string;
   featuredImage: {
     node: {
       sourceUrl: string;

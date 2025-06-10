@@ -5,7 +5,6 @@ import Link from "next/link";
 export const MenuCategories = async () => {
   const categoryId = [156, 146, 145, 140, 141, 138, 162, 144];
   const { data } = await getProductsCategories({
-    per_page: 100,
     include: categoryId,
     orderby: "include",
   });
@@ -15,7 +14,7 @@ export const MenuCategories = async () => {
       <div className="flex items-center gap-4">
         {data?.map((item: CategoriesProductType) => (
           <div key={item.id}>
-            <Link href={`/danh-muc/${item.id}`}>{item?.name}</Link>
+            <Link href={`/danh-muc/${item.slug}`}>{item?.name}</Link>
           </div>
         ))}
       </div>

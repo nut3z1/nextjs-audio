@@ -5,9 +5,12 @@ import {
 } from "@/modules/api/get-products";
 import { BannerHome } from "../Banner";
 import ListProduct from "../Product";
+import { getAllPostsForHome } from "@/modules/api/api";
+import { PostResponse } from "@/types";
+import { Post } from "../Post";
 
 export const HomeContent = async () => {
-  // const allPosts: PostResponse = await getAllPostsForHome(false);
+  const allPosts: PostResponse = await getAllPostsForHome(false);
   const { data: listData } = await getListProductsData({ per_page: 10 });
 
   const listCatalogue = [
@@ -16,6 +19,7 @@ export const HomeContent = async () => {
     { title: "Loa sub", id: 145, url: "loa-sub" },
     { title: "Micro", id: 138, url: "micro" },
   ];
+  console.log("allPosts", allPosts);
   return (
     <div>
       <div className="pb-3">
@@ -29,6 +33,7 @@ export const HomeContent = async () => {
       {listCatalogue.map((item) => (
         <ListProduct key={item.id} {...item} />
       ))}
+      <Post data={allPosts?.edges ?? []} />
     </div>
   );
 };

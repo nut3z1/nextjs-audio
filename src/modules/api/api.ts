@@ -77,11 +77,50 @@ export async function getAllPostsWithSlug() {
   return data?.posts;
 }
 
+export async function getPostBySlug(slug: string, preview: boolean) {
+  const data = await fetchAPI(
+    `
+    query PostBySlug($id: ID!, $idType: PostIdType!) {
+      post(id: $id, idType: $idType) {
+        title
+        excerpt
+        content
+        date
+        slug
+        featuredImage {
+          node {
+            sourceUrl
+          }
+        }
+        author {
+          node {
+            name
+            firstName
+            lastName
+            avatar {
+              url
+            }
+          }
+        }
+      }
+    }
+    `,
+    {
+      variables: {
+        id: slug,
+        idType: "SLUG",
+      },
+    }
+  );
+
+  return data?.post;
+}
+
 export async function getAllPostsForHome(preview: boolean) {
   const data = await fetchAPI(
     `
     query AllPosts {
-      posts(first: 20, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: 5, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             title
@@ -199,7 +238,7 @@ export async function getPostAndMorePosts(
             : ""
         }
       }
-      posts(first: 3, where: { orderby: { field: DATE, order: DESC } }) {
+      posts(first: 5, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
           node {
             ...PostFields
@@ -230,7 +269,7 @@ export async function getPostAndMorePosts(
   data.posts.edges = data.posts.edges.filter(
     ({ node }: { node: { slug: string } }) => node.slug !== slug
   );
-  if (data.posts.edges.length > 2) data.posts.edges.pop();
+  if (data.posts.edges.length > 5) data.posts.edges.pop();
 
   return data;
 }
