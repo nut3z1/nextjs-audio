@@ -11,10 +11,10 @@ export const HomeContent = async () => {
   const { data: listData } = await getListProductsData({ per_page: 10 });
 
   const listCatalogue = [
-    { title: "Dàn Karaoke", id: 156 },
-    { title: "Loa Weeworld", id: 146 },
-    { title: "Loa sub", id: 145 },
-    { title: "Micro", id: 138 },
+    { title: "Dàn Karaoke", id: 156, url: "dan-karaoke" },
+    { title: "Loa Weeworld", id: 146, url: "loa-weeworld" },
+    { title: "Loa sub", id: 145, url: "loa-sub" },
+    { title: "Micro", id: 138, url: "micro" },
   ];
   return (
     <div>
@@ -24,7 +24,7 @@ export const HomeContent = async () => {
       <RowProduct
         data={listData}
         title="DÀN KARAOKE MUA NHIỀU NHẤT"
-        idCategory={156}
+        linkProduct="all"
       />
       {listCatalogue.map((item) => (
         <ListProduct key={item.id} {...item} />

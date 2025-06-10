@@ -38,14 +38,11 @@ export const ProductRevew = ({ id }: { id?: number }) => {
   const { mutateAsync } = useCreateProductReviews({
     onSuccess: (resp, vars) => {
       const responseData = resp;
-      // const errorMess = resp.error;
-      void queryClient.invalidateQueries({
-        queryKey: [QueryKey.ProductReview],
-      });
-
-      console.log("responseData", responseData);
-      reset();
       if (responseData) {
+        void queryClient.invalidateQueries({
+          queryKey: [QueryKey.ProductReview],
+        });
+        reset();
       } else {
         // notifyError(errorMess);
       }
@@ -54,7 +51,7 @@ export const ProductRevew = ({ id }: { id?: number }) => {
       // notifyError();
     },
   });
-  console.log("errors", errors);
+
   return (
     <div className="py-10">
       <div className="font-bold text-xl mb-2">

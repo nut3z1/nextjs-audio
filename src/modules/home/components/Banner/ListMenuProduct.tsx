@@ -13,7 +13,6 @@ export const LisMenuProduct = async () => {
     include: categoryId,
     orderby: "include",
   });
-  console.log("data", data);
   return (
     <ul className="shadow-[0_0_6px_0_rgba(0,0,0,.2)]">
       {data?.map((item: CategoriesProductType, index: number) => (
@@ -25,7 +24,7 @@ export const LisMenuProduct = async () => {
               : ""
           }`}
         >
-          <Link href={`danh-muc/${item?.id}`}>
+          <Link href={`danh-muc/${item?.slug}`}>
             <div className="flex items-center gap-3">
               <Image
                 alt="icon"

@@ -10,11 +10,11 @@ import { ListCard } from "./listCard";
 export const RowProduct = ({
   data,
   title,
-  idCategory,
+  linkProduct,
 }: {
   data: ProductsType[];
   title?: string;
-  idCategory?: number;
+  linkProduct?: string;
 }) => {
   return (
     <div className="container">
@@ -25,8 +25,8 @@ export const RowProduct = ({
               {title}
             </h2>
           </div>
-          {idCategory && (
-            <Link href={`danh-muc/${idCategory}`}>Xem tất cả</Link>
+          {linkProduct && (
+            <Link href={`danh-muc/${linkProduct}`}>Xem tất cả</Link>
           )}
         </div>
       )}
