@@ -6,8 +6,8 @@ import { Textarea } from "@/components/Ui/textarea";
 import { QueryKey } from "@/lib/queriesKey";
 import { useCreateProductReviews } from "@/modules/api/mutations";
 import { useGetProductsReviews } from "@/modules/api/queries";
-import { ProductsReviewsParams } from "@/types/product";
-import { RevewProductType } from "@/types/review";
+import { ProductsReviewsParams } from "@/types/product/product";
+import { RevewProductType } from "@/types/product";
 import { useQueryClient } from "@tanstack/react-query";
 import parse from "html-react-parser";
 import Image from "next/image";
@@ -38,14 +38,11 @@ export const ProductRevew = ({ id }: { id?: number }) => {
   const { mutateAsync } = useCreateProductReviews({
     onSuccess: (resp, vars) => {
       const responseData = resp;
-      // const errorMess = resp.error;
-      void queryClient.invalidateQueries({
-        queryKey: [QueryKey.ProductReview],
-      });
-
-      console.log("responseData", responseData);
-      reset();
       if (responseData) {
+        void queryClient.invalidateQueries({
+          queryKey: [QueryKey.ProductReview],
+        });
+        reset();
       } else {
         // notifyError(errorMess);
       }
@@ -54,7 +51,7 @@ export const ProductRevew = ({ id }: { id?: number }) => {
       // notifyError();
     },
   });
-  console.log("errors", errors);
+
   return (
     <div className="py-10">
       <div className="font-bold text-xl mb-2">

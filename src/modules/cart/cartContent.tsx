@@ -3,7 +3,7 @@ import { CartContext } from "@/components/Cart/cartContext";
 import Image from "next/image";
 import { useContext } from "react";
 import logo from "../../../public/logo.jpg";
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 
 export const CartContent = () => {
   const { setProductCart, productCart } = useContext(CartContext);

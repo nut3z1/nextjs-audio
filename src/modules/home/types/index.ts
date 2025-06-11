@@ -39,6 +39,7 @@ interface Node {
 export interface ListProductType {
   id: number;
   title: string;
+  url?: string;
 }
 
 export enum NameCardType {

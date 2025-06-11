@@ -6,7 +6,7 @@ import {
   getProductsCategories,
 } from "./get-products";
 import { useQuery } from "@tanstack/react-query";
-import { ProductsParams, ProductsReviewsParams } from "@/types/product";
+import { ProductsParams, ProductsReviewsParams } from "@/types/product/product";
 
 export const useGetProjectList = (params: ProductsParams) => {
   return useQuery({

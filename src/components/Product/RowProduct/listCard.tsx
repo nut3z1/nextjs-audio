@@ -1,7 +1,7 @@
 "use client";
 import { CartContext } from "@/components/Cart/cartContext";
 import { NameCardType } from "@/modules/home/types";
-import { ProductsType } from "@/types/product";
+import { ProductsType } from "@/types/product/product";
 import { Button } from "@/components/Ui";
 import {
   TooltipContent,

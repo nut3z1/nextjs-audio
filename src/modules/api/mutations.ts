@@ -1,6 +1,6 @@
 import { ErrorResponse } from "@/types";
-import { ProductsReviewsParams } from "@/types/product";
-import { RevewProductType } from "@/types/review";
+import { ProductsReviewsParams } from "@/types/product/product";
+import { RevewProductType } from "@/types/product";
 import type { UseMutationOptions } from "@tanstack/react-query";
 import { useMutation } from "@tanstack/react-query";
 import { createProductReviews } from "./get-products";
