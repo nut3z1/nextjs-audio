@@ -11,7 +11,6 @@ import { ProductRevew } from "./productRevew";
 import { Specifications } from "./specifications";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
-  console.log("------x");
   return (
     <div className="container">
       <div className="grid grid-cols-2 gap-10">
