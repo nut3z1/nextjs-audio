@@ -1,3 +1,4 @@
+"use client";
 import {
   ArrowsClockwise,
   CircleWavyCheck,
@@ -5,7 +6,6 @@ import {
   ShieldCheckB,
 } from "@/components/Icon";
 import parse from "html-react-parser";
-import { Specifications } from "./specifications";
 
 export const PresentDetail = () => {
   const presentData = [
@@ -45,7 +45,7 @@ export const PresentDetail = () => {
           Khuyến mãi, ưu đãi
         </div>
         <div>
-          {presentData.map((item, index) => (
+          {presentData?.map((item, index) => (
             <div
               key={index}
               className="flex items-center gap-2.5 mb-2.5 last:mb-0"
