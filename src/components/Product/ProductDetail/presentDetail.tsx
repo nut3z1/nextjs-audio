@@ -1,9 +1,9 @@
-import {
-  ArrowsClockwise,
-  CircleWavyCheck,
-  Factory,
-  ShieldCheckB,
-} from "@/components/Icon";
+// import {
+//   ArrowsClockwise,
+//   CircleWavyCheck,
+//   Factory,
+//   ShieldCheckB,
+// } from "@/components/Icon";
 import parse from "html-react-parser";
 
 export const PresentDetail = () => {
@@ -18,31 +18,31 @@ export const PresentDetail = () => {
     "Miễn phí giao hàng trong bán kính 5- 30km",
   ];
 
-  const informationData = [
-    { title: "Bảo hành", icon: "shield", content: "Theo hãng" },
-    { title: "1 đổi 1", icon: "arrows", content: "3 - 7 ngày" },
-    { title: "Thương hiệu", icon: "check", content: "Chính hãng" },
-    { title: "Nơi sản xuất", icon: "factory", content: "Chính hãng" },
-  ];
+  // const informationData = [
+  //   { title: "Bảo hành", icon: "shield", content: "Theo hãng" },
+  //   { title: "1 đổi 1", icon: "arrows", content: "3 - 7 ngày" },
+  //   { title: "Thương hiệu", icon: "check", content: "Chính hãng" },
+  //   { title: "Nơi sản xuất", icon: "factory", content: "Chính hãng" },
+  // ];
 
-  const getIcon = (iconName: string) => {
-    switch (iconName) {
-      case "shield":
-        return <ShieldCheckB />;
-      case "arrows":
-        return <ArrowsClockwise />;
-      case "check":
-        return <CircleWavyCheck />;
-      case "factory":
-        return <Factory />;
-      default:
-        return null;
-    }
-  };
+  // const getIcon = (iconName: string) => {
+  //   switch (iconName) {
+  //     case "shield":
+  //       return <ShieldCheckB />;
+  //     case "arrows":
+  //       return <ArrowsClockwise />;
+  //     case "check":
+  //       return <CircleWavyCheck />;
+  //     case "factory":
+  //       return <Factory />;
+  //     default:
+  //       return null;
+  //   }
+  // };
 
   return (
     <div>
-      <div className="pt-3">
+      {/* <div className="pt-3">
         <ul className="bg-green-50 grid grid-cols-4 px-4 py-3 rounded-2xl text-center">
           {informationData?.map((item, index) => {
             return (
@@ -56,7 +56,7 @@ export const PresentDetail = () => {
             );
           })}
         </ul>
-      </div>
+      </div> */}
       <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
         <div className="absolute -top-3 bg-white text-blue-100 px-6 w-auto font-bold">
           Khuyến mãi, ưu đãi
