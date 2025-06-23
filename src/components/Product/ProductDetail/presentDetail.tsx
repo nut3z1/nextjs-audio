@@ -1,13 +1,13 @@
-// import {
-//   ArrowsClockwise,
-//   CircleWavyCheck,
-//   Factory,
-//   ShieldCheckB,
-// } from "@/components/Icon";
+import {
+  ArrowsClockwise,
+  CircleWavyCheck,
+  Factory,
+  ShieldCheckB,
+} from "@/components/Icon";
 import parse from "html-react-parser";
 
 export const PresentDetail = () => {
-  console.log("-__- ++++ -----");
+  console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxx");
   const presentData = [
     "Tặng 10m Dây loa SWTECHE BD-2S8ED trị giá <span class='text-red-50 font-bold'>250.000đ</span>",
     "Tặng 1 bộ pin sạc trị giá <span class='text-red-50 font-bold'>450.000đ</span>",
@@ -18,26 +18,29 @@ export const PresentDetail = () => {
     "Miễn phí giao hàng trong bán kính 5- 30km",
   ];
 
-  // const informationData = [
-  //   { title: "Bảo hành", icon: <ShieldCheckB />, content: "Theo hãng" },
-  //   { title: "1 đổi 1", icon: <ArrowsClockwise />, content: "3 - 7 ngày" },
-  //   { title: "Thương hiệu", icon: <CircleWavyCheck />, content: "Chính hãng" },
-  //   { title: "Nơi sản xuất", icon: <Factory />, content: "Chính hãng" },
-  // ];
+  const informationData = [
+    { title: "Bảo hành", icon: ShieldCheckB, content: "Theo hãng" },
+    { title: "1 đổi 1", icon: ArrowsClockwise, content: "3 - 7 ngày" },
+    { title: "Thương hiệu", icon: CircleWavyCheck, content: "Chính hãng" },
+    { title: "Nơi sản xuất", icon: Factory, content: "Chính hãng" },
+  ];
 
   return (
     <div>
       <div className="pt-3">
-        <ul className="bg-green-50 grid grid-cols-4 px-4 py-3 rounded-2xl text-center">
-          {/* {informationData?.map((item, index) => (
-            <li key={index}>
-              <div className="text-xs mb-0.5 flex items-center justify-center gap-1">
-                {item.icon}
-                {item.title}
-              </div>
-              <strong className="text-sm">{item.content}</strong>
-            </li>
-          ))} */}
+         <ul className="bg-green-50 grid grid-cols-4 px-4 py-3 rounded-2xl text-center">
+          {informationData?.map((item, index) => {
+            const IconComponent = item.icon;
+            return (
+              <li key={index}>
+                <div className="text-xs mb-0.5 flex items-center justify-center gap-1">
+                  <IconComponent />
+                  {item.title}
+                </div>
+                <strong className="text-sm">{item.content}</strong>
+              </li>
+            );
+          })}
         </ul>
       </div>
       <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
