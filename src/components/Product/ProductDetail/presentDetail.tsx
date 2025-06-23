@@ -41,7 +41,7 @@ export const PresentDetail = () => {
           ))}
         </ul>
       </div>
-      <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
+      {/* <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
         <div className="absolute -top-3 bg-white text-blue-100 px-6 w-auto font-bold">
           Khuyến mãi, ưu đãi
         </div>
@@ -58,7 +58,7 @@ export const PresentDetail = () => {
             </div>
           ))}
         </div>
-      </div>
+      </div> */}
       <div className="pt-4">
         <div className="text-center shadow-[0_0_5px_#888] bg-red-50 text-white p-2 rounded-2xl">
           <div className="uppercase font-bold text-sm">Mua ngay</div>

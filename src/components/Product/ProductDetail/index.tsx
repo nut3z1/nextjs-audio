@@ -11,7 +11,7 @@ import { ProductRevew } from "./productRevew";
 import { Specifications } from "./specifications";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
-  console.log("------");
+  console.log("------x");
   return (
     <div className="container">
       <div className="grid grid-cols-2 gap-10">
@@ -31,7 +31,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             Thương hiệu: Weeworld <Rater total={5} rating={5} />
           </div>
           <p>{data?.price ? `Giá bán: ${data.price}` : ""}</p>
-          {/* <PresentDetail /> */}
+          <PresentDetail />
         </div>
       </div>
       <div className="grid grid-cols-12 gap-10 mt-12">
