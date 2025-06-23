@@ -1,5 +1,3 @@
-"use client";
-
 import {
   ArrowsClockwise,
   CircleWavyCheck,
@@ -9,6 +7,7 @@ import {
 import parse from "html-react-parser";
 
 export const PresentDetail = () => {
+  console.log("-__-");
   const presentData = [
     "Tặng 10m Dây loa SWTECHE BD-2S8ED trị giá <span class='text-red-50 font-bold'>250.000đ</span>",
     "Tặng 1 bộ pin sạc trị giá <span class='text-red-50 font-bold'>450.000đ</span>",
@@ -41,7 +40,7 @@ export const PresentDetail = () => {
           ))}
         </ul>
       </div>
-      {/* <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
+      <div className="border border-solid border-blue-100 rounded-2xl p-6 mt-10 relative">
         <div className="absolute -top-3 bg-white text-blue-100 px-6 w-auto font-bold">
           Khuyến mãi, ưu đãi
         </div>
@@ -54,11 +53,18 @@ export const PresentDetail = () => {
               <div className="text-blue-100 bg-blue-50 rounded-full text-xs w-5 h-5 flex items-center justify-center">
                 {index + 1}
               </div>
-              <div className="text-xs">{parse(item)}</div>
+              <div className="text-xs">
+                {/* Wrap parse result in a fragment or check if it's valid */}
+                {typeof item === "string" && item.includes("<") ? (
+                  <>{parse(item)}</>
+                ) : (
+                  item
+                )}
+              </div>
             </div>
           ))}
         </div>
-      </div> */}
+      </div>
       <div className="pt-4">
         <div className="text-center shadow-[0_0_5px_#888] bg-red-50 text-white p-2 rounded-2xl">
           <div className="uppercase font-bold text-sm">Mua ngay</div>
