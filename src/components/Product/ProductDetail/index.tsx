@@ -24,16 +24,16 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
             className="rounded-t-lg"
           />
         </div>
-        <div>
+        {/* <div>
           <div className="text-2xl font-bold ">{data?.name}</div>
           <div className="py-3 flex items-center gap-3">
             Thương hiệu: Weeworld <Rater total={5} rating={5} />
           </div>
           <p>{data?.price ? `Giá bán: ${data.price}` : ""}</p>
           <PresentDetail />
-        </div>
+        </div> */}
       </div>
-      <div className="grid grid-cols-12 gap-10 mt-12">
+      {/* <div className="grid grid-cols-12 gap-10 mt-12">
         <div className="col-span-8">
           {parse(removeAllClassesUsingRegex(data?.description ?? ""))}
         </div>
@@ -41,7 +41,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
           {data?.attributes?.length ? <Specifications data={data} /> : null}
         </div>
       </div>
-      <ProductRevew id={data?.id} />
+      <ProductRevew id={data?.id} /> */}
     </div>
   );
 };
