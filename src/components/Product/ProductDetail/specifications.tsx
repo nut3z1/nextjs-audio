@@ -2,6 +2,7 @@ import { ProductsType } from "@/types/product/product";
 import React from "react";
 
 export const Specifications = ({ data }: { data?: ProductsType }) => {
+  console.log("datazz----------", data);
   return (
     <div className="py-10">
       <div className="text-base text-blue-400 border-b-3 border-solid border-blue-400 mb-2 text-center h-10">
