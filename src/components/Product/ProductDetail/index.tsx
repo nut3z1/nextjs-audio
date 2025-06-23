@@ -35,13 +35,13 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
       </div>
       <div className="grid grid-cols-12 gap-10 mt-12">
         <div className="col-span-8">
-          {/* {parse(removeAllClassesUsingRegex(data?.description ?? ""))} */}
+          {parse(removeAllClassesUsingRegex(data?.description ?? ""))}
         </div>
         <div className="col-span-4">
           {data?.attributes?.length ? <Specifications data={data} /> : null}
         </div>
       </div>
-      <ProductRevew id={data?.id} />
+      {/* <ProductRevew id={data?.id} /> */}
     </div>
   );
 };
