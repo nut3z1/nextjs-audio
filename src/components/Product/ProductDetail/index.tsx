@@ -11,6 +11,7 @@ import { ProductRevew } from "./productRevew";
 import { Specifications } from "./specifications";
 
 export const ProductDetail = ({ data }: { data?: ProductsType }) => {
+  console.log("------");
   return (
     <div className="container">
       <div className="grid grid-cols-2 gap-10">
@@ -41,7 +42,7 @@ export const ProductDetail = ({ data }: { data?: ProductsType }) => {
           {data?.attributes?.length ? <Specifications data={data} /> : null}
         </div>
       </div>
-      {/* <ProductRevew id={data?.id} /> */}
+      <ProductRevew id={data?.id} />
     </div>
   );
 };
