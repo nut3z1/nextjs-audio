@@ -25,7 +25,7 @@ export const PresentDetail = () => {
     { title: "Nơi sản xuất", icon: "factory", content: "Chính hãng" },
   ];
 
-  const getIcon = (iconName) => {
+  const getIcon = (iconName: string) => {
     switch (iconName) {
       case "shield":
         return <ShieldCheckB />;
