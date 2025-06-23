@@ -13,7 +13,7 @@ export const Specifications = ({ data }: { data?: ProductsType }) => {
             <tr key={item.id} className="odd:bg-[#F2F4F7] text-sm">
               <td className="w-[180px] font-semibold p-2.5">{item.name}</td>
               <td className="w-[calc(100% - 180px)] capitalize">
-                {item.options.join(",")}
+                {item?.options?.join(",")}
               </td>
             </tr>
           ))}
